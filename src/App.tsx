@@ -15,10 +15,7 @@ function App() {
   if (!status) return <div>Loading…</div>
 
   return (
-    <div>
-      <div>{status.appName}</div>
-      <div>DB ready: {String(status.dbReady)}</div>
-    </div>
+    <div className="bg-slate-900 text-white h-screen flex items-center justify-center"> <h1 className="text-4xl font-bold">Tailwind Active</h1> </div>
   )
 }
 
