@@ -6,14 +6,14 @@ import TransactionLayout from './TransactionLayout'
 export default function AppLayout() {
 	const [selectedPage, setSelectedPage] = useState<Page>('transactions')
 	return (
-		<div className="h-full">
+		<div className="h-full flex flex-col">
 			<div className="v-full flex">
 				<Header
 					selectedPage={selectedPage}
 					onSelectPage={setSelectedPage}
 				/>
 			</div>
-			<div className="h-full flex">
+			<div className="h-full">
 				{selectedPage === 'transactions' && <TransactionLayout />}
 			</div>
 		</div>
