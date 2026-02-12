@@ -18,10 +18,10 @@ export default function Sidebar({
 	onSelectPage,
 }: SidebarProps) {
 	return (
-		<div className="w-45 h-full bg-gray-100 border-r flex flex-col">
-			{/* Accounts Section */}
+		<div className="w-full h-full bg-gray-100 border-r flex flex-col">
+			{/* Accounts */}
 			<div className="flex-1 overflow-y-auto">
-				<div className="p-3 text-xs font-semibold text-gray-500">
+				<div className="p-2 text-xs font-semibold text-gray-500">
 					ACCOUNTS
 				</div>
 
@@ -37,7 +37,7 @@ export default function Sidebar({
 				))}
 			</div>
 
-			{/* App Navigation Section */}
+			{/* Pages */}
 			<div className="border-t">
 				{pages.map((page) => (
 					<SidebarItem
