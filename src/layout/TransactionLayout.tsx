@@ -1,13 +1,16 @@
 import { useState, useRef, useEffect } from 'react'
 import Sidebar from '../components/Sidebar'
 import TransactionPage from '../components/TransactionContent'
-import type { Page } from '../types/navigation'
 
-export default function TransactionLayout() {
-	const [selectedAccountId, setSelectedAccountId] = useState<string>('1')
+type TransactionLayoutProps = {
+	selectedAccountId: string
+	setSelectedAccountId: (id: string) => void
+}
 
-	const [selectedPage, setSelectedPage] = useState<Page>('transactions')
-
+export default function TransactionLayout({
+	selectedAccountId,
+	setSelectedAccountId,
+}: TransactionLayoutProps) {
 	const [sidebarWidth, setSidebarWidth] = useState(240)
 
 	const isResizing = useRef(false)
@@ -17,7 +20,7 @@ export default function TransactionLayout() {
 			if (!isResizing.current) return
 
 			const minWidth = 180
-			const maxWidth = window.innerWidth - 200
+			const maxWidth = window.innerWidth - 100
 
 			const newWidth = e.clientX
 
@@ -63,15 +66,14 @@ export default function TransactionLayout() {
 	)
 
 	const selectedAccountName = selectedAccount?.name ?? ''
+
 	return (
 		<div className="h-full flex">
 			<div style={{ width: sidebarWidth }} className="h-full flex">
 				<Sidebar
 					accounts={accounts}
 					selectedAccountId={selectedAccountId}
-					selectedPage={selectedPage}
 					onSelectAccount={setSelectedAccountId}
-					onSelectPage={setSelectedPage}
 				/>
 
 				{/* Resize Handle */}

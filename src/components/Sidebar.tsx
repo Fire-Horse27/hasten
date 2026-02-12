@@ -1,12 +1,9 @@
 import SidebarItem from './SidebarItem'
-import type { Page } from '../types/navigation'
 
 type SidebarProps = {
 	accounts: { id: string; name: string; balance: number }[]
-	selectedAccountId: string | null
-	selectedPage: Page
+	selectedAccountId: string
 	onSelectAccount: (id: string) => void
-	onSelectPage: (page: Page) => void
 }
 
 export default function Sidebar({

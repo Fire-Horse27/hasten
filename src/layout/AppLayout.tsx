@@ -4,7 +4,10 @@ import Header from '../components/Header'
 import TransactionLayout from './TransactionLayout'
 
 export default function AppLayout() {
+	const [selectedAccountId, setSelectedAccountId] = useState<string>('1')
+
 	const [selectedPage, setSelectedPage] = useState<Page>('transactions')
+
 	return (
 		<div className="h-full flex flex-col">
 			<div className="v-full flex">
@@ -14,7 +17,12 @@ export default function AppLayout() {
 				/>
 			</div>
 			<div className="h-full">
-				{selectedPage === 'transactions' && <TransactionLayout />}
+				{selectedPage === 'transactions' && (
+					<TransactionLayout
+						selectedAccountId={selectedAccountId}
+						setSelectedAccountId={setSelectedAccountId}
+					/>
+				)}
 			</div>
 		</div>
 	)
