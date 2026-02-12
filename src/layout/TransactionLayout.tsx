@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import Sidebar from '../components/Sidebar'
-import ManagePage from '../components/TransactionContent'
+import TransactionPage from '../components/TransactionContent'
 import type { Page } from '../types/navigation'
 
 export default function TransactionLayout() {
@@ -82,7 +82,7 @@ export default function TransactionLayout() {
 			</div>
 
 			<div className="flex-1 p-2 pb-3">
-				<ManagePage
+				<TransactionPage
 					accountId={selectedAccountId}
 					accountName={selectedAccountName}
 				/>
