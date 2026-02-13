@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react'
-import Sidebar from '../components/Sidebar'
-import TransactionContent from '../components/TransactionContent'
+import Sidebar from '../components/Transaction/Sidebar'
+import TransactionContent from '../components/Transaction/TransactionContent'
 
 type TransactionLayoutProps = {
 	selectedAccountId: string

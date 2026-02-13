@@ -1,15 +1,7 @@
 import { useMemo } from 'react'
-import SectionHeader from '../components/PageHeader'
-
-type Transaction = {
-	id: string
-	date: string
-	payee: string
-	category: string
-	memo?: string
-	amount: number
-	balance: number
-}
+import SectionHeader from '../PageHeader'
+import TransactionTableRow from './TransactionTableRow'
+import { Transaction } from '../../types/transaction'
 
 interface TransactionContentProps {
 	accountId: string
@@ -24,7 +16,8 @@ export default function TransactionContent({
 	const transactions: Transaction[] = useMemo(
 		() => [
 			{
-				id: '1',
+				id: 1,
+				accountId: 1,
 				date: '2026-02-01',
 				payee: 'Employer Inc.',
 				category: 'Salary',
@@ -32,7 +25,8 @@ export default function TransactionContent({
 				balance: 2500,
 			},
 			{
-				id: '2',
+				id: 2,
+				accountId: 1,
 				date: '2026-02-03',
 				payee: 'Walmart',
 				category: 'Groceries',
@@ -40,7 +34,8 @@ export default function TransactionContent({
 				balance: 2354.68,
 			},
 			{
-				id: '3',
+				id: 3,
+				accountId: 1,
 				date: '2026-02-05',
 				payee: 'Electric Company',
 				category: 'Utilities',
@@ -77,30 +72,21 @@ export default function TransactionContent({
 					</thead>
 					<tbody>
 						{transactions.map((tx) => (
-							<tr
-								key={tx.id}
-								className="border-t hover:bg-gray-50"
-							>
-								<td className="px-4 py-2">{tx.date}</td>
-								<td className="px-4 py-2">{tx.payee}</td>
-								<td className="px-4 py-2">{tx.category}</td>
-								<td className="px-4 py-2">{tx.memo || ''}</td>
-								<td className="px-4 py-2 text-right">
-									{tx.amount.toFixed(2)}
-								</td>
-								<td className="px-4 py-2 text-right">
-									{tx.balance.toFixed(2)}
-								</td>
-							</tr>
+							<TransactionTableRow transaction={tx} />
 						))}
 					</tbody>
 				</table>
 			</div>
 
 			{/* Footer */}
-			<div className="flex justify-end">
+			<div className="flex justify-end gap-8">
 				<div className="flex font-small gap-2">
 					<div>Current Balance: </div>
+					<div>${currentBalance.toFixed(2)}</div>
+				</div>
+
+				<div className="flex font-small gap-2">
+					<div>End Balance: </div>
 					<div>${currentBalance.toFixed(2)}</div>
 				</div>
 			</div>
