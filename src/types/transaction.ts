@@ -1,5 +1,5 @@
 export type Transaction = {
-	id: number
+	id: string
 	accountId: number
 	date: string // ISO string (YYYY-MM-DD)
 	payee: string

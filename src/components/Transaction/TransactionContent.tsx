@@ -16,7 +16,7 @@ export default function TransactionContent({
 	const transactions: Transaction[] = useMemo(
 		() => [
 			{
-				id: 1,
+				id: '1',
 				accountId: 1,
 				date: '2026-02-01',
 				payee: 'Employer Inc.',
@@ -25,7 +25,7 @@ export default function TransactionContent({
 				balance: 2500,
 			},
 			{
-				id: 2,
+				id: '2',
 				accountId: 1,
 				date: '2026-02-03',
 				payee: 'Walmart',
@@ -34,7 +34,7 @@ export default function TransactionContent({
 				balance: 2354.68,
 			},
 			{
-				id: 3,
+				id: '3',
 				accountId: 1,
 				date: '2026-02-05',
 				payee: 'Electric Company',
@@ -72,7 +72,7 @@ export default function TransactionContent({
 					</thead>
 					<tbody>
 						{transactions.map((tx) => (
-							<TransactionTableRow transaction={tx} />
+							<TransactionTableRow key={tx.id} transaction={tx} />
 						))}
 					</tbody>
 				</table>
